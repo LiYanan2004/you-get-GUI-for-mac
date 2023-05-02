@@ -11,6 +11,7 @@
 		383E66DA2A00FD9B006BB304 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E66D92A00FD9B006BB304 /* ContentView.swift */; };
 		383E66DC2A00FD9D006BB304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 383E66DB2A00FD9D006BB304 /* Assets.xcassets */; };
 		383E66DF2A00FD9D006BB304 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 383E66DE2A00FD9D006BB304 /* Preview Assets.xcassets */; };
+		383E66EB2A00FE71006BB304 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 383E66EA2A00FE71006BB304 /* PythonKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		383E66DB2A00FD9D006BB304 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		383E66DE2A00FD9D006BB304 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		383E66E02A00FD9D006BB304 /* you_get_GUI_for_mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = you_get_GUI_for_mac.entitlements; sourceTree = "<group>"; };
+		383E66E82A00FE3C006BB304 /* PythonKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PythonKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383E66EB2A00FE71006BB304 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,8 +39,10 @@
 		383E66CB2A00FD9B006BB304 = {
 			isa = PBXGroup;
 			children = (
+				383E66E82A00FE3C006BB304 /* PythonKit */,
 				383E66D62A00FD9B006BB304 /* you-get-GUI-for-mac */,
 				383E66D52A00FD9B006BB304 /* Products */,
+				383E66E92A00FE71006BB304 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +74,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		383E66E92A00FE71006BB304 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +97,9 @@
 			dependencies = (
 			);
 			name = "you-get-GUI-for-mac";
+			packageProductDependencies = (
+				383E66EA2A00FE71006BB304 /* PythonKit */,
+			);
 			productName = "you-get-GUI-for-mac";
 			productReference = 383E66D42A00FD9B006BB304 /* you-get-GUI-for-mac.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +128,8 @@
 				Base,
 			);
 			mainGroup = 383E66CB2A00FD9B006BB304;
+			packageReferences = (
+			);
 			productRefGroup = 383E66D52A00FD9B006BB304 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -336,6 +353,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		383E66EA2A00FE71006BB304 /* PythonKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PythonKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 383E66CC2A00FD9B006BB304 /* Project object */;
 }
