@@ -20,13 +20,17 @@ class ShellExecutor {
     
     @discardableResult
     func runShell(_ command: String, refreshInterval: TimeInterval = 0.5) throws -> String {
+        // 环境变量
+        let processInfo = ProcessInfo.processInfo
+        let environmentPath = processInfo.environment["PATH"] ?? ""
+
         let task = Process()
         let pipe = Pipe()
-        
         task.standardOutput = pipe
         task.standardError = pipe
+        task.launchPath = "/bin/zsh"
         task.arguments = ["-c", command]
-        task.executableURL = URL(fileURLWithPath: "/bin/zsh")
+        task.environment = ["PATH": "/usr/local/bin:\(environmentPath)"]
         
         startStreaming(pipe: pipe, refreshInterval: refreshInterval)
         try task.run()

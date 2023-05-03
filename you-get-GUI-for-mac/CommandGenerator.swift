@@ -11,11 +11,11 @@ class DownloadManager: ObservableObject {
     @Published var videoURLString = "https://www.bilibili.com/video/BV1Eg4y1L79p/?spm_id_from=333.999.0.0&vd_source=55ee9459b59c21c0c87d1bd1acb2902c"
     @Published var destinationString = "~/Desktop"
     @Published var usingM3U8 = false
-    @Published var autoRename = false
+    @Published var autoRename = true
     @Published var overwriteFiles = false
     @Published var skipCheckFileSize = false
     @Published var downloadCaptions = false
-    @Published var mergeVideoParts = false
+    @Published var mergeVideoParts = true
     @Published var ignoreSSLErrors = false
     @Published var showExtractedInfo = true
     @Published var showExtractedJSON = false
@@ -24,9 +24,7 @@ class DownloadManager: ObservableObject {
     
     init() {
         shellExecutor = ShellExecutor { output in
-            print("---")
-            print(output)
-            print("---")
+            print(output, terminator: "\n\n\n")
         }
     }
     
@@ -54,6 +52,9 @@ class DownloadManager: ObservableObject {
         command += ignoreSSLErrors ? "-k " : ""
         command += showExtractedInfo ? "-i " : ""
         command += showExtractedJSON ? "--json " : ""
+        #warning("This should only be used when testing.")
+        // My cookies file for Bilibili.
+        command += "--cookies ~/Desktop/you-get-GUI-for-mac/cookies.txt "
         command += "-o \(destinationString) "
         command += "\"\(videoURLString)\""
 //        if let cookiesFile = cookiesFile {
