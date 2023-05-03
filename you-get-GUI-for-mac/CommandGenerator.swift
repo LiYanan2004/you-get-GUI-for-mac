@@ -45,33 +45,15 @@ class DownloadManager: ObservableObject {
     internal func getDownloadCommand() -> String {
         var command = "~/Downloads/you-get/you-get "
 
-        if usingM3U8 {
-            command += "-m "
-        }
-        if autoRename {
-            command += "-a "
-        }
-        if overwriteFiles {
-            command += "-f "
-        }
-        if skipCheckFileSize {
-            command += "--skip-existing-file-size-check "
-        }
-        if !downloadCaptions {
-            command += "--no-caption "
-        }
-        if !mergeVideoParts {
-            command += "--no-merge "
-        }
-        if ignoreSSLErrors {
-            command += "-k "
-        }
-        if showExtractedInfo {
-            command += "-i "
-        }
-        if showExtractedJSON {
-            command += "--json "
-        }
+        command += usingM3U8 ? "-m " : ""
+        command += autoRename ? "-a " : ""
+        command += overwriteFiles ? "-f " : ""
+        command += skipCheckFileSize ? "--skip-existing-file-size-check " : ""
+        command += !downloadCaptions ? "--no-caption " : ""
+        command += !mergeVideoParts ? "--no-merge " : ""
+        command += ignoreSSLErrors ? "-k " : ""
+        command += showExtractedInfo ? "-i " : ""
+        command += showExtractedJSON ? "--json " : ""
         command += "-o \(destinationString) "
         command += "\"\(videoURLString)\""
 //        if let cookiesFile = cookiesFile {
