@@ -10,8 +10,11 @@ import SwiftUI
 @main
 struct you_get_GUI_for_macApp: App {
     var body: some Scene {
-        WindowGroup {
+        Window("Media Downloader", id: "downloader") {
             ContentView()
+                .frame(minWidth: 300, maxWidth: 500, minHeight: 600)
         }
+        .windowResizability(.contentSize)
+        .windowStyle(.hiddenTitleBar)
     }
 }

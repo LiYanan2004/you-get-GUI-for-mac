@@ -7,21 +7,186 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		383E66D82A00FD9B006BB304 /* you_get_GUI_for_macApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E66D72A00FD9B006BB304 /* you_get_GUI_for_macApp.swift */; };
+		383E66D82A00FD9B006BB304 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E66D72A00FD9B006BB304 /* App.swift */; };
 		383E66DA2A00FD9B006BB304 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E66D92A00FD9B006BB304 /* ContentView.swift */; };
 		383E66DC2A00FD9D006BB304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 383E66DB2A00FD9D006BB304 /* Assets.xcassets */; };
 		383E66DF2A00FD9D006BB304 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 383E66DE2A00FD9D006BB304 /* Preview Assets.xcassets */; };
-		383E66EB2A00FE71006BB304 /* PythonKit in Frameworks */ = {isa = PBXBuildFile; productRef = 383E66EA2A00FE71006BB304 /* PythonKit */; };
+		383E66ED2A0109D2006BB304 /* ShellExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E66EC2A0109D2006BB304 /* ShellExecutor.swift */; };
+		383E67BE2A015A60006BB304 /* DebugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E67BD2A015A60006BB304 /* DebugView.swift */; };
+		383E67C02A015B6A006BB304 /* NavigationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E67BF2A015B6A006BB304 /* NavigationHeader.swift */; };
+		383E67C22A015EED006BB304 /* SectionGroupBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E67C12A015EED006BB304 /* SectionGroupBox.swift */; };
+		383E67C42A02074D006BB304 /* DownloadButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E67C32A02074D006BB304 /* DownloadButton.swift */; };
+		383E67C62A0236AF006BB304 /* CommandGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383E67C52A0236AF006BB304 /* CommandGenerator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		383E66D42A00FD9B006BB304 /* you-get-GUI-for-mac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "you-get-GUI-for-mac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		383E66D72A00FD9B006BB304 /* you_get_GUI_for_macApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = you_get_GUI_for_macApp.swift; sourceTree = "<group>"; };
+		383E66D72A00FD9B006BB304 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		383E66D92A00FD9B006BB304 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		383E66DB2A00FD9D006BB304 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		383E66DE2A00FD9D006BB304 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		383E66E02A00FD9D006BB304 /* you_get_GUI_for_mac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = you_get_GUI_for_mac.entitlements; sourceTree = "<group>"; };
-		383E66E82A00FE3C006BB304 /* PythonKit */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = PythonKit; sourceTree = "<group>"; };
+		383E66EC2A0109D2006BB304 /* ShellExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellExecutor.swift; sourceTree = "<group>"; };
+		383E670E2A010DB4006BB304 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		383E67102A010DB4006BB304 /* test_common.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = test_common.py; sourceTree = "<group>"; };
+		383E67112A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E67122A010DB4006BB304 /* test.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = test.py; sourceTree = "<group>"; };
+		383E67132A010DB4006BB304 /* test_util.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = test_util.py; sourceTree = "<group>"; };
+		383E67142A010DB4006BB304 /* MANIFEST.in */ = {isa = PBXFileReference; lastKnownFileType = text; path = MANIFEST.in; sourceTree = "<group>"; };
+		383E67172A010DB4006BB304 /* _you-get */ = {isa = PBXFileReference; lastKnownFileType = text; path = "_you-get"; sourceTree = "<group>"; };
+		383E67182A010DB4006BB304 /* you-get-completion.bash */ = {isa = PBXFileReference; lastKnownFileType = text; path = "you-get-completion.bash"; sourceTree = "<group>"; };
+		383E67192A010DB4006BB304 /* you-get.fish */ = {isa = PBXFileReference; lastKnownFileType = text; path = "you-get.fish"; sourceTree = "<group>"; };
+		383E671A2A010DB4006BB304 /* you-get.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = "you-get.xcodeproj"; sourceTree = "<group>"; };
+		383E671D2A010DB4006BB304 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		383E671E2A010DB4006BB304 /* setup.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = setup.py; sourceTree = "<group>"; };
+		383E671F2A010DB4006BB304 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		383E67202A010DB4006BB304 /* CONTRIBUTING.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = CONTRIBUTING.md; sourceTree = "<group>"; };
+		383E67212A010DB4006BB304 /* you-get.plugin.zsh */ = {isa = PBXFileReference; lastKnownFileType = text; path = "you-get.plugin.zsh"; sourceTree = "<group>"; };
+		383E67242A010DB4006BB304 /* python-package.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "python-package.yml"; sourceTree = "<group>"; };
+		383E67252A010DB4006BB304 /* setup.cfg */ = {isa = PBXFileReference; lastKnownFileType = text; path = setup.cfg; sourceTree = "<group>"; };
+		383E67262A010DB4006BB304 /* you-get.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "you-get.json"; sourceTree = "<group>"; };
+		383E67272A010DB4006BB304 /* README.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.rst; sourceTree = "<group>"; };
+		383E67282A010DB4006BB304 /* CHANGELOG.rst */ = {isa = PBXFileReference; lastKnownFileType = text; path = CHANGELOG.rst; sourceTree = "<group>"; };
+		383E67292A010DB4006BB304 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		383E672A2A010DB4006BB304 /* you-get */ = {isa = PBXFileReference; lastKnownFileType = text; path = "you-get"; sourceTree = "<group>"; };
+		383E672D2A010DB4006BB304 /* version.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = version.py; sourceTree = "<group>"; };
+		383E672F2A010DB4006BB304 /* git.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = git.py; sourceTree = "<group>"; };
+		383E67302A010DB4006BB304 /* log.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = log.py; sourceTree = "<group>"; };
+		383E67312A010DB4006BB304 /* term.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = term.py; sourceTree = "<group>"; };
+		383E67322A010DB4006BB304 /* os.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = os.py; sourceTree = "<group>"; };
+		383E67332A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E67342A010DB4006BB304 /* fs.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = fs.py; sourceTree = "<group>"; };
+		383E67352A010DB4006BB304 /* strings.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = strings.py; sourceTree = "<group>"; };
+		383E67372A010DB4006BB304 /* join_flv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = join_flv.py; sourceTree = "<group>"; };
+		383E67382A010DB4006BB304 /* join_mp4.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = join_mp4.py; sourceTree = "<group>"; };
+		383E67392A010DB4006BB304 /* ffmpeg.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ffmpeg.py; sourceTree = "<group>"; };
+		383E673A2A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E673B2A010DB4006BB304 /* join_ts.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = join_ts.py; sourceTree = "<group>"; };
+		383E673C2A010DB4006BB304 /* rtmpdump.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = rtmpdump.py; sourceTree = "<group>"; };
+		383E673D2A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E673E2A010DB4006BB304 /* extractor.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = extractor.py; sourceTree = "<group>"; };
+		383E673F2A010DB4006BB304 /* json_output.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = json_output.py; sourceTree = "<group>"; };
+		383E67422A010DB4006BB304 /* ffmpeg.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ffmpeg.py; sourceTree = "<group>"; };
+		383E67432A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E67442A010DB4006BB304 /* libav.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = libav.py; sourceTree = "<group>"; };
+		383E67452A010DB4006BB304 /* mencoder.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = mencoder.py; sourceTree = "<group>"; };
+		383E67462A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E67482A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E674A2A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E674C2A010DB4006BB304 /* gnome_mplayer.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = gnome_mplayer.py; sourceTree = "<group>"; };
+		383E674D2A010DB4006BB304 /* dragonplayer.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = dragonplayer.py; sourceTree = "<group>"; };
+		383E674E2A010DB4006BB304 /* mplayer.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = mplayer.py; sourceTree = "<group>"; };
+		383E674F2A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E67502A010DB4006BB304 /* wmp.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = wmp.py; sourceTree = "<group>"; };
+		383E67512A010DB4006BB304 /* vlc.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = vlc.py; sourceTree = "<group>"; };
+		383E67522A010DB4006BB304 /* __main__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __main__.py; sourceTree = "<group>"; };
+		383E67532A010DB4006BB304 /* common.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = common.py; sourceTree = "<group>"; };
+		383E67552A010DB4006BB304 /* vine.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = vine.py; sourceTree = "<group>"; };
+		383E67562A010DB4006BB304 /* wanmen.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = wanmen.py; sourceTree = "<group>"; };
+		383E67572A010DB4006BB304 /* kakao.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = kakao.py; sourceTree = "<group>"; };
+		383E67582A010DB4006BB304 /* flickr.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = flickr.py; sourceTree = "<group>"; };
+		383E67592A010DB4006BB304 /* cntv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = cntv.py; sourceTree = "<group>"; };
+		383E675A2A010DB4006BB304 /* bandcamp.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = bandcamp.py; sourceTree = "<group>"; };
+		383E675B2A010DB4006BB304 /* lrts.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = lrts.py; sourceTree = "<group>"; };
+		383E675C2A010DB4006BB304 /* youtube.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = youtube.py; sourceTree = "<group>"; };
+		383E675D2A010DB4006BB304 /* ted.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ted.py; sourceTree = "<group>"; };
+		383E675E2A010DB4006BB304 /* tumblr.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = tumblr.py; sourceTree = "<group>"; };
+		383E675F2A010DB4006BB304 /* le.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = le.py; sourceTree = "<group>"; };
+		383E67602A010DB4006BB304 /* embed.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = embed.py; sourceTree = "<group>"; };
+		383E67612A010DB4006BB304 /* kuwo.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = kuwo.py; sourceTree = "<group>"; };
+		383E67622A010DB4006BB304 /* bigthink.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = bigthink.py; sourceTree = "<group>"; };
+		383E67632A010DB4006BB304 /* suntv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = suntv.py; sourceTree = "<group>"; };
+		383E67642A010DB4006BB304 /* qingting.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = qingting.py; sourceTree = "<group>"; };
+		383E67652A010DB4006BB304 /* qie_video.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = qie_video.py; sourceTree = "<group>"; };
+		383E67662A010DB4006BB304 /* douban.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = douban.py; sourceTree = "<group>"; };
+		383E67672A010DB4006BB304 /* bokecc.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = bokecc.py; sourceTree = "<group>"; };
+		383E67682A010DB4006BB304 /* miomio.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = miomio.py; sourceTree = "<group>"; };
+		383E67692A010DB4006BB304 /* acfun.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = acfun.py; sourceTree = "<group>"; };
+		383E676A2A010DB4006BB304 /* qie.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = qie.py; sourceTree = "<group>"; };
+		383E676B2A010DB4006BB304 /* iqiyi.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = iqiyi.py; sourceTree = "<group>"; };
+		383E676C2A010DB4006BB304 /* iqilu.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = iqilu.py; sourceTree = "<group>"; };
+		383E676D2A010DB4006BB304 /* interest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = interest.py; sourceTree = "<group>"; };
+		383E676E2A010DB4006BB304 /* yixia.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = yixia.py; sourceTree = "<group>"; };
+		383E676F2A010DB4006BB304 /* vimeo.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = vimeo.py; sourceTree = "<group>"; };
+		383E67702A010DB4006BB304 /* mgtv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = mgtv.py; sourceTree = "<group>"; };
+		383E67712A010DB4006BB304 /* douyin.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = douyin.py; sourceTree = "<group>"; };
+		383E67722A010DB4006BB304 /* huomaotv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = huomaotv.py; sourceTree = "<group>"; };
+		383E67732A010DB4006BB304 /* naver.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = naver.py; sourceTree = "<group>"; };
+		383E67742A010DB4006BB304 /* ku6.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ku6.py; sourceTree = "<group>"; };
+		383E67752A010DB4006BB304 /* __init__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __init__.py; sourceTree = "<group>"; };
+		383E67762A010DB4006BB304 /* google.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = google.py; sourceTree = "<group>"; };
+		383E67772A010DB4006BB304 /* pinterest.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = pinterest.py; sourceTree = "<group>"; };
+		383E67782A010DB4006BB304 /* mtv81.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = mtv81.py; sourceTree = "<group>"; };
+		383E67792A010DB4006BB304 /* ckplayer.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ckplayer.py; sourceTree = "<group>"; };
+		383E677A2A010DB4006BB304 /* nanagogo.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = nanagogo.py; sourceTree = "<group>"; };
+		383E677B2A010DB4006BB304 /* qq.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = qq.py; sourceTree = "<group>"; };
+		383E677C2A010DB4006BB304 /* pixnet.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = pixnet.py; sourceTree = "<group>"; };
+		383E677D2A010DB4006BB304 /* alive.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = alive.py; sourceTree = "<group>"; };
+		383E677E2A010DB4006BB304 /* metacafe.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = metacafe.py; sourceTree = "<group>"; };
+		383E677F2A010DB4006BB304 /* douyutv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = douyutv.py; sourceTree = "<group>"; };
+		383E67802A010DB4006BB304 /* missevan.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = missevan.py; sourceTree = "<group>"; };
+		383E67812A010DB4006BB304 /* sina.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sina.py; sourceTree = "<group>"; };
+		383E67822A010DB4006BB304 /* facebook.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = facebook.py; sourceTree = "<group>"; };
+		383E67832A010DB4006BB304 /* sohu.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = sohu.py; sourceTree = "<group>"; };
+		383E67842A010DB4006BB304 /* xinpianchang.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = xinpianchang.py; sourceTree = "<group>"; };
+		383E67852A010DB4006BB304 /* ximalaya.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ximalaya.py; sourceTree = "<group>"; };
+		383E67862A010DB4006BB304 /* vk.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = vk.py; sourceTree = "<group>"; };
+		383E67872A010DB4006BB304 /* infoq.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = infoq.py; sourceTree = "<group>"; };
+		383E67882A010DB4006BB304 /* nicovideo.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = nicovideo.py; sourceTree = "<group>"; };
+		383E67892A010DB4006BB304 /* zhanqi.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = zhanqi.py; sourceTree = "<group>"; };
+		383E678A2A010DB4006BB304 /* khan.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = khan.py; sourceTree = "<group>"; };
+		383E678B2A010DB4006BB304 /* giphy.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = giphy.py; sourceTree = "<group>"; };
+		383E678C2A010DB4006BB304 /* lizhi.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = lizhi.py; sourceTree = "<group>"; };
+		383E678D2A010DB4006BB304 /* kugou.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = kugou.py; sourceTree = "<group>"; };
+		383E678E2A010DB4006BB304 /* miaopai.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = miaopai.py; sourceTree = "<group>"; };
+		383E678F2A010DB4006BB304 /* soundcloud.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = soundcloud.py; sourceTree = "<group>"; };
+		383E67902A010DB4006BB304 /* twitter.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = twitter.py; sourceTree = "<group>"; };
+		383E67912A010DB4006BB304 /* ixigua.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ixigua.py; sourceTree = "<group>"; };
+		383E67922A010DB4006BB304 /* joy.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = joy.py; sourceTree = "<group>"; };
+		383E67932A010DB4006BB304 /* kuaishou.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = kuaishou.py; sourceTree = "<group>"; };
+		383E67942A010DB4006BB304 /* netease.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = netease.py; sourceTree = "<group>"; };
+		383E67952A010DB4006BB304 /* yizhibo.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = yizhibo.py; sourceTree = "<group>"; };
+		383E67962A010DB4006BB304 /* bilibili.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = bilibili.py; sourceTree = "<group>"; };
+		383E67972A010DB4006BB304 /* veoh.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = veoh.py; sourceTree = "<group>"; };
+		383E67982A010DB4006BB304 /* cbs.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = cbs.py; sourceTree = "<group>"; };
+		383E67992A010DB4006BB304 /* tudou.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = tudou.py; sourceTree = "<group>"; };
+		383E679A2A010DB4006BB304 /* coub.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = coub.py; sourceTree = "<group>"; };
+		383E679B2A010DB4006BB304 /* ucas.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ucas.py; sourceTree = "<group>"; };
+		383E679C2A010DB4006BB304 /* freesound.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = freesound.py; sourceTree = "<group>"; };
+		383E679D2A010DB4006BB304 /* iwara.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = iwara.py; sourceTree = "<group>"; };
+		383E679E2A010DB4006BB304 /* archive.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = archive.py; sourceTree = "<group>"; };
+		383E679F2A010DB4006BB304 /* mixcloud.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = mixcloud.py; sourceTree = "<group>"; };
+		383E67A02A010DB4006BB304 /* zhibo.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = zhibo.py; sourceTree = "<group>"; };
+		383E67A12A010DB4006BB304 /* toutiao.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = toutiao.py; sourceTree = "<group>"; };
+		383E67A22A010DB4006BB304 /* zhihu.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = zhihu.py; sourceTree = "<group>"; };
+		383E67A32A010DB4006BB304 /* instagram.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = instagram.py; sourceTree = "<group>"; };
+		383E67A42A010DB4006BB304 /* tiktok.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = tiktok.py; sourceTree = "<group>"; };
+		383E67A52A010DB4006BB304 /* ehow.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ehow.py; sourceTree = "<group>"; };
+		383E67A62A010DB4006BB304 /* pptv.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = pptv.py; sourceTree = "<group>"; };
+		383E67A72A010DB4006BB304 /* dailymotion.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = dailymotion.py; sourceTree = "<group>"; };
+		383E67A82A010DB4006BB304 /* theplatform.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = theplatform.py; sourceTree = "<group>"; };
+		383E67A92A010DB4006BB304 /* youku.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = youku.py; sourceTree = "<group>"; };
+		383E67AA2A010DB4006BB304 /* longzhu.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = longzhu.py; sourceTree = "<group>"; };
+		383E67AB2A010DB4006BB304 /* icourses.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = icourses.py; sourceTree = "<group>"; };
+		383E67AC2A010DB4006BB304 /* baidu.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = baidu.py; sourceTree = "<group>"; };
+		383E67AD2A010DB4006BB304 /* w56.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = w56.py; sourceTree = "<group>"; };
+		383E67AE2A010DB4006BB304 /* showroom.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = showroom.py; sourceTree = "<group>"; };
+		383E67AF2A010DB4006BB304 /* magisto.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = magisto.py; sourceTree = "<group>"; };
+		383E67B02A010DB4006BB304 /* imgur.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = imgur.py; sourceTree = "<group>"; };
+		383E67B12A010DB4006BB304 /* funshion.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = funshion.py; sourceTree = "<group>"; };
+		383E67B22A010DB4006BB304 /* ifeng.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = ifeng.py; sourceTree = "<group>"; };
+		383E67B32A010DB4006BB304 /* qq_egame.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = qq_egame.py; sourceTree = "<group>"; };
+		383E67B42A010DB4006BB304 /* tucao.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = tucao.py; sourceTree = "<group>"; };
+		383E67B52A010DB4006BB304 /* universal.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = universal.py; sourceTree = "<group>"; };
+		383E67B62A010DB4006BB304 /* fc2video.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = fc2video.py; sourceTree = "<group>"; };
+		383E67B72A010DB4006BB304 /* heavymusic.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = heavymusic.py; sourceTree = "<group>"; };
+		383E67B82A010DB4006BB304 /* baomihua.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = baomihua.py; sourceTree = "<group>"; };
+		383E67B92A010DB4006BB304 /* __main__.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = __main__.py; sourceTree = "<group>"; };
+		383E67BD2A015A60006BB304 /* DebugView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugView.swift; sourceTree = "<group>"; };
+		383E67BF2A015B6A006BB304 /* NavigationHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHeader.swift; sourceTree = "<group>"; };
+		383E67C12A015EED006BB304 /* SectionGroupBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionGroupBox.swift; sourceTree = "<group>"; };
+		383E67C32A02074D006BB304 /* DownloadButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadButton.swift; sourceTree = "<group>"; };
+		383E67C52A0236AF006BB304 /* CommandGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandGenerator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,7 +194,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				383E66EB2A00FE71006BB304 /* PythonKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,7 +203,7 @@
 		383E66CB2A00FD9B006BB304 = {
 			isa = PBXGroup;
 			children = (
-				383E66E82A00FE3C006BB304 /* PythonKit */,
+				383E670D2A010DB4006BB304 /* you-get */,
 				383E66D62A00FD9B006BB304 /* you-get-GUI-for-mac */,
 				383E66D52A00FD9B006BB304 /* Products */,
 				383E66E92A00FE71006BB304 /* Frameworks */,
@@ -57,8 +221,14 @@
 		383E66D62A00FD9B006BB304 /* you-get-GUI-for-mac */ = {
 			isa = PBXGroup;
 			children = (
-				383E66D72A00FD9B006BB304 /* you_get_GUI_for_macApp.swift */,
+				383E66D72A00FD9B006BB304 /* App.swift */,
 				383E66D92A00FD9B006BB304 /* ContentView.swift */,
+				383E67C52A0236AF006BB304 /* CommandGenerator.swift */,
+				383E67C32A02074D006BB304 /* DownloadButton.swift */,
+				383E67C12A015EED006BB304 /* SectionGroupBox.swift */,
+				383E67BF2A015B6A006BB304 /* NavigationHeader.swift */,
+				383E67BD2A015A60006BB304 /* DebugView.swift */,
+				383E66EC2A0109D2006BB304 /* ShellExecutor.swift */,
 				383E66DB2A00FD9D006BB304 /* Assets.xcassets */,
 				383E66E02A00FD9D006BB304 /* you_get_GUI_for_mac.entitlements */,
 				383E66DD2A00FD9D006BB304 /* Preview Content */,
@@ -81,6 +251,296 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		383E670D2A010DB4006BB304 /* you-get */ = {
+			isa = PBXGroup;
+			children = (
+				383E670E2A010DB4006BB304 /* Makefile */,
+				383E670F2A010DB4006BB304 /* tests */,
+				383E67142A010DB4006BB304 /* MANIFEST.in */,
+				383E67152A010DB4006BB304 /* contrib */,
+				383E671A2A010DB4006BB304 /* you-get.xcodeproj */,
+				383E671D2A010DB4006BB304 /* README.md */,
+				383E671E2A010DB4006BB304 /* setup.py */,
+				383E671F2A010DB4006BB304 /* .gitignore */,
+				383E67202A010DB4006BB304 /* CONTRIBUTING.md */,
+				383E67212A010DB4006BB304 /* you-get.plugin.zsh */,
+				383E67222A010DB4006BB304 /* .github */,
+				383E67252A010DB4006BB304 /* setup.cfg */,
+				383E67262A010DB4006BB304 /* you-get.json */,
+				383E67272A010DB4006BB304 /* README.rst */,
+				383E67282A010DB4006BB304 /* CHANGELOG.rst */,
+				383E67292A010DB4006BB304 /* LICENSE.txt */,
+				383E672A2A010DB4006BB304 /* you-get */,
+				383E672B2A010DB4006BB304 /* src */,
+			);
+			name = "you-get";
+			path = "../../Downloads/you-get";
+			sourceTree = "<group>";
+		};
+		383E670F2A010DB4006BB304 /* tests */ = {
+			isa = PBXGroup;
+			children = (
+				383E67102A010DB4006BB304 /* test_common.py */,
+				383E67112A010DB4006BB304 /* __init__.py */,
+				383E67122A010DB4006BB304 /* test.py */,
+				383E67132A010DB4006BB304 /* test_util.py */,
+			);
+			path = tests;
+			sourceTree = "<group>";
+		};
+		383E67152A010DB4006BB304 /* contrib */ = {
+			isa = PBXGroup;
+			children = (
+				383E67162A010DB4006BB304 /* completion */,
+			);
+			path = contrib;
+			sourceTree = "<group>";
+		};
+		383E67162A010DB4006BB304 /* completion */ = {
+			isa = PBXGroup;
+			children = (
+				383E67172A010DB4006BB304 /* _you-get */,
+				383E67182A010DB4006BB304 /* you-get-completion.bash */,
+				383E67192A010DB4006BB304 /* you-get.fish */,
+			);
+			path = completion;
+			sourceTree = "<group>";
+		};
+		383E671B2A010DB4006BB304 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		383E67222A010DB4006BB304 /* .github */ = {
+			isa = PBXGroup;
+			children = (
+				383E67232A010DB4006BB304 /* workflows */,
+			);
+			path = .github;
+			sourceTree = "<group>";
+		};
+		383E67232A010DB4006BB304 /* workflows */ = {
+			isa = PBXGroup;
+			children = (
+				383E67242A010DB4006BB304 /* python-package.yml */,
+			);
+			path = workflows;
+			sourceTree = "<group>";
+		};
+		383E672B2A010DB4006BB304 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				383E672C2A010DB4006BB304 /* you_get */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		383E672C2A010DB4006BB304 /* you_get */ = {
+			isa = PBXGroup;
+			children = (
+				383E672D2A010DB4006BB304 /* version.py */,
+				383E672E2A010DB4006BB304 /* util */,
+				383E67362A010DB4006BB304 /* processor */,
+				383E673D2A010DB4006BB304 /* __init__.py */,
+				383E673E2A010DB4006BB304 /* extractor.py */,
+				383E673F2A010DB4006BB304 /* json_output.py */,
+				383E67402A010DB4006BB304 /* cli_wrapper */,
+				383E67532A010DB4006BB304 /* common.py */,
+				383E67542A010DB4006BB304 /* extractors */,
+				383E67B92A010DB4006BB304 /* __main__.py */,
+			);
+			path = you_get;
+			sourceTree = "<group>";
+		};
+		383E672E2A010DB4006BB304 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				383E672F2A010DB4006BB304 /* git.py */,
+				383E67302A010DB4006BB304 /* log.py */,
+				383E67312A010DB4006BB304 /* term.py */,
+				383E67322A010DB4006BB304 /* os.py */,
+				383E67332A010DB4006BB304 /* __init__.py */,
+				383E67342A010DB4006BB304 /* fs.py */,
+				383E67352A010DB4006BB304 /* strings.py */,
+			);
+			path = util;
+			sourceTree = "<group>";
+		};
+		383E67362A010DB4006BB304 /* processor */ = {
+			isa = PBXGroup;
+			children = (
+				383E67372A010DB4006BB304 /* join_flv.py */,
+				383E67382A010DB4006BB304 /* join_mp4.py */,
+				383E67392A010DB4006BB304 /* ffmpeg.py */,
+				383E673A2A010DB4006BB304 /* __init__.py */,
+				383E673B2A010DB4006BB304 /* join_ts.py */,
+				383E673C2A010DB4006BB304 /* rtmpdump.py */,
+			);
+			path = processor;
+			sourceTree = "<group>";
+		};
+		383E67402A010DB4006BB304 /* cli_wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				383E67412A010DB4006BB304 /* transcoder */,
+				383E67462A010DB4006BB304 /* __init__.py */,
+				383E67472A010DB4006BB304 /* downloader */,
+				383E67492A010DB4006BB304 /* openssl */,
+				383E674B2A010DB4006BB304 /* player */,
+			);
+			path = cli_wrapper;
+			sourceTree = "<group>";
+		};
+		383E67412A010DB4006BB304 /* transcoder */ = {
+			isa = PBXGroup;
+			children = (
+				383E67422A010DB4006BB304 /* ffmpeg.py */,
+				383E67432A010DB4006BB304 /* __init__.py */,
+				383E67442A010DB4006BB304 /* libav.py */,
+				383E67452A010DB4006BB304 /* mencoder.py */,
+			);
+			path = transcoder;
+			sourceTree = "<group>";
+		};
+		383E67472A010DB4006BB304 /* downloader */ = {
+			isa = PBXGroup;
+			children = (
+				383E67482A010DB4006BB304 /* __init__.py */,
+			);
+			path = downloader;
+			sourceTree = "<group>";
+		};
+		383E67492A010DB4006BB304 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				383E674A2A010DB4006BB304 /* __init__.py */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		383E674B2A010DB4006BB304 /* player */ = {
+			isa = PBXGroup;
+			children = (
+				383E674C2A010DB4006BB304 /* gnome_mplayer.py */,
+				383E674D2A010DB4006BB304 /* dragonplayer.py */,
+				383E674E2A010DB4006BB304 /* mplayer.py */,
+				383E674F2A010DB4006BB304 /* __init__.py */,
+				383E67502A010DB4006BB304 /* wmp.py */,
+				383E67512A010DB4006BB304 /* vlc.py */,
+				383E67522A010DB4006BB304 /* __main__.py */,
+			);
+			path = player;
+			sourceTree = "<group>";
+		};
+		383E67542A010DB4006BB304 /* extractors */ = {
+			isa = PBXGroup;
+			children = (
+				383E67552A010DB4006BB304 /* vine.py */,
+				383E67562A010DB4006BB304 /* wanmen.py */,
+				383E67572A010DB4006BB304 /* kakao.py */,
+				383E67582A010DB4006BB304 /* flickr.py */,
+				383E67592A010DB4006BB304 /* cntv.py */,
+				383E675A2A010DB4006BB304 /* bandcamp.py */,
+				383E675B2A010DB4006BB304 /* lrts.py */,
+				383E675C2A010DB4006BB304 /* youtube.py */,
+				383E675D2A010DB4006BB304 /* ted.py */,
+				383E675E2A010DB4006BB304 /* tumblr.py */,
+				383E675F2A010DB4006BB304 /* le.py */,
+				383E67602A010DB4006BB304 /* embed.py */,
+				383E67612A010DB4006BB304 /* kuwo.py */,
+				383E67622A010DB4006BB304 /* bigthink.py */,
+				383E67632A010DB4006BB304 /* suntv.py */,
+				383E67642A010DB4006BB304 /* qingting.py */,
+				383E67652A010DB4006BB304 /* qie_video.py */,
+				383E67662A010DB4006BB304 /* douban.py */,
+				383E67672A010DB4006BB304 /* bokecc.py */,
+				383E67682A010DB4006BB304 /* miomio.py */,
+				383E67692A010DB4006BB304 /* acfun.py */,
+				383E676A2A010DB4006BB304 /* qie.py */,
+				383E676B2A010DB4006BB304 /* iqiyi.py */,
+				383E676C2A010DB4006BB304 /* iqilu.py */,
+				383E676D2A010DB4006BB304 /* interest.py */,
+				383E676E2A010DB4006BB304 /* yixia.py */,
+				383E676F2A010DB4006BB304 /* vimeo.py */,
+				383E67702A010DB4006BB304 /* mgtv.py */,
+				383E67712A010DB4006BB304 /* douyin.py */,
+				383E67722A010DB4006BB304 /* huomaotv.py */,
+				383E67732A010DB4006BB304 /* naver.py */,
+				383E67742A010DB4006BB304 /* ku6.py */,
+				383E67752A010DB4006BB304 /* __init__.py */,
+				383E67762A010DB4006BB304 /* google.py */,
+				383E67772A010DB4006BB304 /* pinterest.py */,
+				383E67782A010DB4006BB304 /* mtv81.py */,
+				383E67792A010DB4006BB304 /* ckplayer.py */,
+				383E677A2A010DB4006BB304 /* nanagogo.py */,
+				383E677B2A010DB4006BB304 /* qq.py */,
+				383E677C2A010DB4006BB304 /* pixnet.py */,
+				383E677D2A010DB4006BB304 /* alive.py */,
+				383E677E2A010DB4006BB304 /* metacafe.py */,
+				383E677F2A010DB4006BB304 /* douyutv.py */,
+				383E67802A010DB4006BB304 /* missevan.py */,
+				383E67812A010DB4006BB304 /* sina.py */,
+				383E67822A010DB4006BB304 /* facebook.py */,
+				383E67832A010DB4006BB304 /* sohu.py */,
+				383E67842A010DB4006BB304 /* xinpianchang.py */,
+				383E67852A010DB4006BB304 /* ximalaya.py */,
+				383E67862A010DB4006BB304 /* vk.py */,
+				383E67872A010DB4006BB304 /* infoq.py */,
+				383E67882A010DB4006BB304 /* nicovideo.py */,
+				383E67892A010DB4006BB304 /* zhanqi.py */,
+				383E678A2A010DB4006BB304 /* khan.py */,
+				383E678B2A010DB4006BB304 /* giphy.py */,
+				383E678C2A010DB4006BB304 /* lizhi.py */,
+				383E678D2A010DB4006BB304 /* kugou.py */,
+				383E678E2A010DB4006BB304 /* miaopai.py */,
+				383E678F2A010DB4006BB304 /* soundcloud.py */,
+				383E67902A010DB4006BB304 /* twitter.py */,
+				383E67912A010DB4006BB304 /* ixigua.py */,
+				383E67922A010DB4006BB304 /* joy.py */,
+				383E67932A010DB4006BB304 /* kuaishou.py */,
+				383E67942A010DB4006BB304 /* netease.py */,
+				383E67952A010DB4006BB304 /* yizhibo.py */,
+				383E67962A010DB4006BB304 /* bilibili.py */,
+				383E67972A010DB4006BB304 /* veoh.py */,
+				383E67982A010DB4006BB304 /* cbs.py */,
+				383E67992A010DB4006BB304 /* tudou.py */,
+				383E679A2A010DB4006BB304 /* coub.py */,
+				383E679B2A010DB4006BB304 /* ucas.py */,
+				383E679C2A010DB4006BB304 /* freesound.py */,
+				383E679D2A010DB4006BB304 /* iwara.py */,
+				383E679E2A010DB4006BB304 /* archive.py */,
+				383E679F2A010DB4006BB304 /* mixcloud.py */,
+				383E67A02A010DB4006BB304 /* zhibo.py */,
+				383E67A12A010DB4006BB304 /* toutiao.py */,
+				383E67A22A010DB4006BB304 /* zhihu.py */,
+				383E67A32A010DB4006BB304 /* instagram.py */,
+				383E67A42A010DB4006BB304 /* tiktok.py */,
+				383E67A52A010DB4006BB304 /* ehow.py */,
+				383E67A62A010DB4006BB304 /* pptv.py */,
+				383E67A72A010DB4006BB304 /* dailymotion.py */,
+				383E67A82A010DB4006BB304 /* theplatform.py */,
+				383E67A92A010DB4006BB304 /* youku.py */,
+				383E67AA2A010DB4006BB304 /* longzhu.py */,
+				383E67AB2A010DB4006BB304 /* icourses.py */,
+				383E67AC2A010DB4006BB304 /* baidu.py */,
+				383E67AD2A010DB4006BB304 /* w56.py */,
+				383E67AE2A010DB4006BB304 /* showroom.py */,
+				383E67AF2A010DB4006BB304 /* magisto.py */,
+				383E67B02A010DB4006BB304 /* imgur.py */,
+				383E67B12A010DB4006BB304 /* funshion.py */,
+				383E67B22A010DB4006BB304 /* ifeng.py */,
+				383E67B32A010DB4006BB304 /* qq_egame.py */,
+				383E67B42A010DB4006BB304 /* tucao.py */,
+				383E67B52A010DB4006BB304 /* universal.py */,
+				383E67B62A010DB4006BB304 /* fc2video.py */,
+				383E67B72A010DB4006BB304 /* heavymusic.py */,
+				383E67B82A010DB4006BB304 /* baomihua.py */,
+			);
+			path = extractors;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -98,7 +558,6 @@
 			);
 			name = "you-get-GUI-for-mac";
 			packageProductDependencies = (
-				383E66EA2A00FE71006BB304 /* PythonKit */,
 			);
 			productName = "you-get-GUI-for-mac";
 			productReference = 383E66D42A00FD9B006BB304 /* you-get-GUI-for-mac.app */;
@@ -132,6 +591,12 @@
 			);
 			productRefGroup = 383E66D52A00FD9B006BB304 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 383E671B2A010DB4006BB304 /* Products */;
+					ProjectRef = 383E671A2A010DB4006BB304 /* you-get.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				383E66D32A00FD9B006BB304 /* you-get-GUI-for-mac */,
@@ -156,8 +621,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383E67C22A015EED006BB304 /* SectionGroupBox.swift in Sources */,
+				383E67BE2A015A60006BB304 /* DebugView.swift in Sources */,
 				383E66DA2A00FD9B006BB304 /* ContentView.swift in Sources */,
-				383E66D82A00FD9B006BB304 /* you_get_GUI_for_macApp.swift in Sources */,
+				383E67C02A015B6A006BB304 /* NavigationHeader.swift in Sources */,
+				383E66D82A00FD9B006BB304 /* App.swift in Sources */,
+				383E67C42A02074D006BB304 /* DownloadButton.swift in Sources */,
+				383E66ED2A0109D2006BB304 /* ShellExecutor.swift in Sources */,
+				383E67C62A0236AF006BB304 /* CommandGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,13 +824,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		383E66EA2A00FE71006BB304 /* PythonKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = PythonKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 383E66CC2A00FD9B006BB304 /* Project object */;
 }
