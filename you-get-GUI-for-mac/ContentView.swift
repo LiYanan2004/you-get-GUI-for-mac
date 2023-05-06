@@ -11,6 +11,7 @@ struct ContentView: View {
     @StateObject private var downloadManager = DownloadManager()
     @State private var showAlert = false
     @State private var error: String? = nil
+    @Namespace private var container
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,7 +21,9 @@ struct ContentView: View {
                     subTitle: "Powered by [you-get](https://github.com/soimort/you-get)"
                 )
                 Spacer()
-                DownloadButton().focusable(false)
+                DownloadButton()
+                    .focusable(false)
+                    .allowsHitTesting(!downloadManager.working)
             }
             .scenePadding()
             
@@ -60,7 +63,9 @@ struct ContentView: View {
             .toggleStyle(.switch)
             .groupBoxStyle(.section)
             .controlSize(.large)
+            .prefersDefaultFocus(in: container)
         }
+        .focusScope(container)
         .onReceive(downloadManager.errorNotification) {
             self.error = $0 as? String
             self.showAlert = true
