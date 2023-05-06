@@ -51,6 +51,30 @@ struct ContentView: View {
                 }
                 
                 GroupBox {
+                    Toggle("Download Playlist", isOn: $downloadManager.playlist)
+                    if downloadManager.playlist {
+                        Toggle("Whole Playlist", isOn: $downloadManager.downloadWholePlaylist.animation())
+                        if !downloadManager.downloadWholePlaylist {
+                            LabeledContent("Download") {
+                                HStack {
+                                    Button(downloadManager.playlistOption == .first ? "First" : "Last") {
+                                        downloadManager.playlistOption.toggle()
+                                    }
+                                    TextField("Count", value: $downloadManager.playlistCount, formatter: NumberFormatter())
+                                        .frame(width: 60)
+                                    Text("Page")
+                                }
+                                .buttonStyle(.borderless)
+                                .labelsHidden()
+                            }
+                        }
+                        
+                    }
+                } label: {
+                    Text("Playlist")
+                }
+                
+                GroupBox {
                     Toggle("Ignore SSL Errors", isOn: $downloadManager.ignoreSSLErrors)
                     Toggle("Show Extracted Info", isOn: $downloadManager.showExtractedInfo)
                     Toggle("Show Extracted JSON", isOn: $downloadManager.showExtractedJSON)

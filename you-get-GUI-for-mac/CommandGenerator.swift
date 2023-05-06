@@ -12,6 +12,10 @@ class DownloadManager: ObservableObject {
     @Published var videoURLString = "https://www.bilibili.com/video/BV12c411T7CE"
     @Published var destinationString = "~/Desktop"
     @Published var usingM3U8 = false
+    @Published var playlist = true
+    @Published var downloadWholePlaylist = true
+    @Published var playlistOption = PlaylistOption.first
+    @Published var playlistCount = 1
     @Published var autoRename = true
     @Published var overwriteFiles = false
     @Published var skipCheckFileSize = false
@@ -111,6 +115,12 @@ class DownloadManager: ObservableObject {
         command += ignoreSSLErrors ? "-k " : ""
         command += showExtractedInfo ? "-i " : ""
         command += showExtractedJSON ? "--json " : ""
+        if playlist {
+            command += "-l "
+            if !downloadWholePlaylist {
+                command += "\(playlistOption.argument) \(playlistCount) "
+            }
+        }
         #warning("This should only be used when testing.")
         // My cookies file for Bilibili.
         command += "--cookies ~/Desktop/you-get-GUI-for-mac/cookies.txt "
@@ -125,18 +135,6 @@ class DownloadManager: ObservableObject {
 //        if let password = password {
 //            command += "-P \(password) "
 //        }
-//        if playlist {
-//            command += "-l "
-//            if let first = playlistFirst {
-//                command += "--first \(first) "
-//            }
-//            if let last = playlistLast {
-//                command += "--last \(last) "
-//            }
-//            if let pageSize = playlistPageSize {
-//                command += "--size \(pageSize) "
-//            }
-//        }
         return command
     }
     
@@ -149,4 +147,20 @@ class DownloadManager: ObservableObject {
 
 extension String: LocalizedError {
     public var errorDescription: String? { self }
+}
+
+enum PlaylistOption {
+    case first
+    case last
+    
+    mutating func toggle() {
+        switch self {
+        case .first: self = .last
+        case .last: self = .first
+        }
+    }
+    
+    var argument: String {
+        self == .first ? "--first" : "--last"
+    }
 }
