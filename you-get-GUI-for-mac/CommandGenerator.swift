@@ -49,10 +49,8 @@ class DownloadManager: ObservableObject {
     }
     
     private func update(terminalMessage: String) {
-        print(terminalMessage)
         // Update download state
         if !downloading && terminalMessage.contains("Downloading") {
-            print("download...")
             runOnMainActor {
                 self.progress = 0
                 self.downloading = true
@@ -94,7 +92,7 @@ class DownloadManager: ObservableObject {
             self.working = true
         }
         let command = getDownloadCommand()
-        print(command)
+        logger.log("Command: \(command)")
         try shellExecutor.runShell(command)
         runOnMainActor {
             self.working = false

@@ -27,7 +27,7 @@ struct FileLocationButton: View {
             case .success(let url):
                 location = url
             case .failure(let error):
-                print(error)
+                logger.error("\(error.localizedDescription)")
             }
         }
     }

@@ -73,7 +73,7 @@ struct DryRunButton: View {
         }
         .onAppear {
             shellExecutor.resultHandler = {
-                print("Received new message")
+                logger.debug("Received a new message")
                 messages = $0
             }
         }

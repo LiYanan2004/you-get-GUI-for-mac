@@ -6,6 +6,9 @@
 //
 
 import SwiftUI
+import OSLog
+
+let logger = Logger()
 
 @main
 struct you_get_GUI_for_macApp: App {
