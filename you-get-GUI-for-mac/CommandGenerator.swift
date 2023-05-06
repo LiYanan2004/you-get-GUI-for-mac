@@ -39,7 +39,11 @@ class DownloadManager: ObservableObject {
         }
         shellExecutor.errorHandler = { error in
             self.runOnMainActor {
-                self.errorNotification.send(error)
+                // If there is an issue occured, send a notification.
+                // If message doesn't contains these sentences, it'll be regarded as a normal message.
+                // If the message contains other normal message, trim it.
+                guard let index = error.firstRange(of: "you-get: [error] oops, something went wrong.")?.lowerBound ?? error.firstRange(of: "ffmpeg version")?.lowerBound else { return }
+                self.errorNotification.send(String(error[index...]))
             }
         }
     }
