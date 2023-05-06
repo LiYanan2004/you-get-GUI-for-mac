@@ -40,11 +40,11 @@ struct ContentView: View {
                 }
                 
                 GroupBox {
-                    Toggle("Using M3U8", isOn: $downloadManager.usingM3U8)
                     Toggle("Auto Rename", isOn: $downloadManager.autoRename)
+                    Toggle("Download Captions", isOn: $downloadManager.downloadCaptions)
                     Toggle("Overwrite Files", isOn: $downloadManager.overwriteFiles)
                     Toggle("Skip Check File Size", isOn: $downloadManager.skipCheckFileSize)
-                    Toggle("Download Captions", isOn: $downloadManager.downloadCaptions)
+                    Toggle("Using M3U8", isOn: $downloadManager.usingM3U8)
                     Toggle("Merge Video Parts", isOn: $downloadManager.mergeVideoParts)
                 } label: {
                     Text("Download Options")
