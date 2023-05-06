@@ -11,6 +11,7 @@ class ShellExecutor {
     static var `default` = ShellExecutor()
     
     var resultHandler: ((String) -> Void)?
+    var errorHandler: ((String) -> Void)?
     var resultTransferTask: Task<Void, Never>?
     var availableData = Data()
     
@@ -21,20 +22,28 @@ class ShellExecutor {
         let environmentPath = processInfo.environment["PATH"] ?? ""
 
         let task = Process()
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        task.standardError = pipe
+        let resultPipe = Pipe()
+        let errorPipe = Pipe()
+        task.standardOutput = resultPipe
+        task.standardError = errorPipe
         task.launchPath = "/bin/zsh"
         task.arguments = ["-c", command]
         task.environment = ["PATH": "/usr/local/bin:\(environmentPath)"]
         
-        startStreaming(pipe: pipe)
+        startStreaming(pipe: resultPipe)
         try task.run()
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)!
-        stopStreaming()
+        defer { stopStreaming() }
         
-        return output
+        if let errorData = try errorPipe.fileHandleForReading.readToEnd() {
+            let error = String(data: errorData, encoding: .utf8) ?? "Unknown error"
+            errorHandler?(error)
+            return error
+        } else if let outputData = try resultPipe.fileHandleForReading.readToEnd() {
+            let output = String(data: outputData, encoding: .utf8) ?? ""
+            return output
+        } else {
+            return ""
+        }
     }
     
     func startStreaming(pipe: Pipe) {

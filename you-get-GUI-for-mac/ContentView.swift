@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject private var downloadManager = DownloadManager()
+    @State private var showAlert = false
+    @State private var error: String? = nil
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -59,6 +61,11 @@ struct ContentView: View {
             .groupBoxStyle(.section)
             .controlSize(.large)
         }
+        .onReceive(downloadManager.errorNotification) {
+            self.error = $0 as? String
+            self.showAlert = true
+        }
+        .alert(isPresented: $showAlert, error: error) { }
         .environmentObject(downloadManager)
         .scrollContentBackground(.hidden)
         .background {

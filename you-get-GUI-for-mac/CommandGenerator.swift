@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 class DownloadManager: ObservableObject {
     @Published var videoURLString = "https://www.bilibili.com/video/BV12c411T7CE"
@@ -25,11 +26,17 @@ class DownloadManager: ObservableObject {
     @Published var progress = 0.0
     
     let shellExecutor: ShellExecutor!
+    let errorNotification = PassthroughSubject<LocalizedError, Never>()
     
     init() {
         shellExecutor = ShellExecutor()
         shellExecutor.resultHandler = {
             self.update(terminalMessage: $0)
+        }
+        shellExecutor.errorHandler = { error in
+            self.runOnMainActor {
+                self.errorNotification.send(error)
+            }
         }
     }
     
@@ -138,4 +145,8 @@ class DownloadManager: ObservableObject {
             action()
         }
     }
+}
+
+extension String: LocalizedError {
+    public var errorDescription: String? { self }
 }
