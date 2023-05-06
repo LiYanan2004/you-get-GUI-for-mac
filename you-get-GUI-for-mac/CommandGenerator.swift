@@ -10,18 +10,19 @@ import Combine
 
 class DownloadManager: ObservableObject {
     @Published var videoURLString = "https://www.bilibili.com/video/BV12c411T7CE"
-    @Published var destinationString = "~/Desktop"
-    @Published var usingM3U8 = false
-    @Published var playlist = true
+    @AppStorage("destinationString") var destinationString = "~/Desktop"
+    @AppStorage("usingM3U8") var usingM3U8 = false
+    @AppStorage("playlist") var playlist = true
     @Published var downloadWholePlaylist = true
     @Published var playlistOption = PlaylistOption.first
     @Published var playlistCount = 1
-    @Published var autoRename = true
-    @Published var overwriteFiles = false
-    @Published var skipCheckFileSize = false
-    @Published var downloadCaptions = false
-    @Published var mergeVideoParts = true
-    @Published var ignoreSSLErrors = false
+    @AppStorage("autoRename") var autoRename = true
+    @AppStorage("overwriteFiles") var overwriteFiles = false
+    @AppStorage("skipCheckFileSize") var skipCheckFileSize = false
+    @AppStorage("downloadCaptions") var downloadCaptions = false
+    @AppStorage("mergeVideoParts") var mergeVideoParts = true
+    @AppStorage("ignoreSSLErrors") var ignoreSSLErrors = false
+
     @Published var showExtractedInfo = false
     @Published var showExtractedJSON = false
     
