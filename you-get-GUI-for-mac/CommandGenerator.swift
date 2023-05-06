@@ -142,7 +142,7 @@ class DownloadManager: ObservableObject {
         return command
     }
     
-    private func runOnMainActor(_ action: @escaping () -> Void) {
+    internal func runOnMainActor(_ action: @escaping () -> Void) {
         Task { @MainActor in
             action()
         }

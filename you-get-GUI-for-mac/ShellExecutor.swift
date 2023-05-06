@@ -15,30 +15,40 @@ class ShellExecutor {
     var resultTransferTask: Task<Void, Never>?
     var availableData = Data()
     
+    var task: Process?
+    var resultPipe: Pipe?
+    var errorPipe: Pipe?
+    
     @discardableResult
     func runShell(_ command: String) throws -> String {
         // 环境变量
         let processInfo = ProcessInfo.processInfo
         let environmentPath = processInfo.environment["PATH"] ?? ""
 
-        let task = Process()
-        let resultPipe = Pipe()
-        let errorPipe = Pipe()
-        task.standardOutput = resultPipe
-        task.standardError = errorPipe
-        task.launchPath = "/bin/zsh"
-        task.arguments = ["-c", command]
-        task.environment = ["PATH": "/usr/local/bin:\(environmentPath)"]
+        task = Process()
+        resultPipe = Pipe()
+        errorPipe = Pipe()
         
-        startStreaming(pipe: resultPipe)
-        try task.run()
-        defer { stopStreaming() }
+        task!.standardOutput = resultPipe
+        task!.standardError = errorPipe
+        task!.launchPath = "/bin/zsh"
+        task!.arguments = ["-c", command]
+        task!.environment = ["PATH": "/usr/local/bin:\(environmentPath)"]
         
-        if let errorData = try errorPipe.fileHandleForReading.readToEnd() {
+        startStreaming(pipe: resultPipe!)
+        try task!.run()
+        defer {
+            stopStreaming()
+            task = nil
+            resultPipe = nil
+            errorPipe = nil
+        }
+        
+        if let errorData = try errorPipe?.fileHandleForReading.readToEnd() {
             let error = String(data: errorData, encoding: .utf8) ?? "Unknown error"
             errorHandler?(error)
             return error
-        } else if let outputData = try resultPipe.fileHandleForReading.readToEnd() {
+        } else if let outputData = try resultPipe?.fileHandleForReading.readToEnd() {
             let output = String(data: outputData, encoding: .utf8) ?? ""
             return output
         } else {
@@ -69,5 +79,13 @@ class ShellExecutor {
     func stopStreaming() {
         resultTransferTask?.cancel()
         resultTransferTask = nil
+    }
+    
+    func terminate() {
+        self.resultTransferTask?.cancel()
+        task?.terminate()
+        task = nil
+        resultPipe = nil
+        errorPipe = nil
     }
 }

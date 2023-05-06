@@ -76,12 +76,17 @@ struct ContentView: View {
                 
                 GroupBox {
                     Toggle("Ignore SSL Errors", isOn: $downloadManager.ignoreSSLErrors)
-                    Toggle("Show Extracted Info", isOn: $downloadManager.showExtractedInfo)
-                    Toggle("Show Extracted JSON", isOn: $downloadManager.showExtractedJSON)
+                    LabeledContent("Show Extracted Info") {
+                        DryRunButton(json: false)
+                    }
+                    LabeledContent("Show Extracted JSON") {
+                        DryRunButton(json: true)
+                    }
                     LabeledContent("You-get Version", value: "0.4.1650")
                 } label: {
                     Text("Debugging Options")
                 }
+                .buttonStyle(.link)
             }
             .formStyle(.grouped)
             .toggleStyle(.switch)
