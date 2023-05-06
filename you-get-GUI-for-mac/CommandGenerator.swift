@@ -22,7 +22,7 @@ class DownloadManager: ObservableObject {
     @Published var downloadCaptions = false
     @Published var mergeVideoParts = true
     @Published var ignoreSSLErrors = false
-    @Published var showExtractedInfo = true
+    @Published var showExtractedInfo = false
     @Published var showExtractedJSON = false
     
     @Published var working = false
