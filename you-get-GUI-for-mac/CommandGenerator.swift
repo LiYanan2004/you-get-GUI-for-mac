@@ -102,6 +102,7 @@ class DownloadManager: ObservableObject {
     
     func copyDownloadCommand() {
         let command = getDownloadCommand()
+        NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(command, forType: .string)
     }
     
