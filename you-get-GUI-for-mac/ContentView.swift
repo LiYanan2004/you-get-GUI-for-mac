@@ -25,7 +25,13 @@ struct ContentView: View {
             Form {
                 TextField("Video URL", text: $downloadManager.videoURLString)
                 LabeledContent("Destination") {
-                    Text(downloadManager.destinationString)
+                    let location = Binding<URL> {
+                        URL(filePath: downloadManager.destinationString)
+                    } set: {
+                        downloadManager.destinationString = $0.path()
+                    }
+                    FileLocationButton(location: location)
+                        .buttonStyle(.borderless)
                 }
                 
                 GroupBox {
