@@ -10,16 +10,12 @@ import Foundation
 class ShellExecutor {
     static var `default` = ShellExecutor()
     
-    var resultHandler: (@Sendable (String) -> Void)?
+    var resultHandler: ((String) -> Void)?
     var resultTransferTask: Task<Void, Never>?
     var availableData = Data()
     
-    init(resultHandler: (@Sendable (String) -> Void)? = nil) {
-        self.resultHandler = resultHandler
-    }
-    
     @discardableResult
-    func runShell(_ command: String, refreshInterval: TimeInterval = 0.5) throws -> String {
+    func runShell(_ command: String) throws -> String {
         // 环境变量
         let processInfo = ProcessInfo.processInfo
         let environmentPath = processInfo.environment["PATH"] ?? ""
@@ -32,7 +28,7 @@ class ShellExecutor {
         task.arguments = ["-c", command]
         task.environment = ["PATH": "/usr/local/bin:\(environmentPath)"]
         
-        startStreaming(pipe: pipe, refreshInterval: refreshInterval)
+        startStreaming(pipe: pipe)
         try task.run()
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: .utf8)!
@@ -41,7 +37,7 @@ class ShellExecutor {
         return output
     }
     
-    func startStreaming(pipe: Pipe, refreshInterval: TimeInterval) {
+    func startStreaming(pipe: Pipe) {
         resultTransferTask = Task.detached(priority: .high) {
             var lastOutput = ""
             while true {

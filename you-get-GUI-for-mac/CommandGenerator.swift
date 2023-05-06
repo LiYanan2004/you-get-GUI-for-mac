@@ -8,7 +8,7 @@
 import SwiftUI
 
 class DownloadManager: ObservableObject {
-    @Published var videoURLString = "https://www.bilibili.com/video/BV1Eg4y1L79p/?spm_id_from=333.999.0.0&vd_source=55ee9459b59c21c0c87d1bd1acb2902c"
+    @Published var videoURLString = "https://www.bilibili.com/video/BV12c411T7CE"
     @Published var destinationString = "~/Desktop"
     @Published var usingM3U8 = false
     @Published var autoRename = true
@@ -20,19 +20,71 @@ class DownloadManager: ObservableObject {
     @Published var showExtractedInfo = true
     @Published var showExtractedJSON = false
     
+    @Published var working = false
+    @Published var downloading = false
+    @Published var progress = 0.0
+    
     let shellExecutor: ShellExecutor!
     
     init() {
-        shellExecutor = ShellExecutor { output in
-            print(output, terminator: "\n\n\n")
+        shellExecutor = ShellExecutor()
+        shellExecutor.resultHandler = {
+            self.update(terminalMessage: $0)
+        }
+    }
+    
+    private func update(terminalMessage: String) {
+        print(terminalMessage)
+        // Update download state
+        if !downloading && terminalMessage.contains("Downloading") {
+            print("download...")
+            runOnMainActor {
+                self.progress = 0
+                self.downloading = true
+            }
+        }
+        let lastLine = terminalMessage
+            .split(separator: "\n")
+            .compactMap { $0.isEmpty ? nil : String($0) }
+            .last
+        if let lastLine {
+            /// Get current progress.
+            ///
+            /// ```python
+            /// self.bar = '{:>4}%% ({:>%s}/%sMB) ├{:─<%s}┤[{:>%s}/{:>%s}] {}' % (
+            ///     total_str_width, total_str, self.bar_size, total_pieces_len,
+            ///     total_pieces_len
+            /// )
+            /// ```
+            if var lastestBar = lastLine.split(separator: "\r").last {
+                guard lastestBar.count > 0 else { return }
+                if lastestBar.first!.isWhitespace {
+                    lastestBar = lastestBar.dropFirst()
+                    lastestBar.insert("0", at: lastestBar.startIndex)
+                }
+                runOnMainActor {
+                    if let progress = Double(lastestBar.prefix(4)) {
+                        self.progress = progress
+                        if !self.downloading { self.downloading = true }
+                    } else {
+                        self.downloading = false
+                    }
+                }
+            }
         }
     }
     
     func download() async throws {
+        runOnMainActor {
+            self.working = true
+        }
         let command = getDownloadCommand()
         print(command)
-        let result = try shellExecutor.runShell(command)
-        print("Finished. Result: \(result)")
+        try shellExecutor.runShell(command)
+        runOnMainActor {
+            self.working = false
+            self.downloading = false
+        }
     }
     
     func copyDownloadCommand() {
@@ -79,5 +131,11 @@ class DownloadManager: ObservableObject {
 //            }
 //        }
         return command
+    }
+    
+    private func runOnMainActor(_ action: @escaping () -> Void) {
+        Task { @MainActor in
+            action()
+        }
     }
 }
