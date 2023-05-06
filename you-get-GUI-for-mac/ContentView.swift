@@ -54,6 +54,10 @@ struct ContentView: View {
             .controlSize(.large)
         }
         .environmentObject(downloadManager)
+        .scrollContentBackground(.hidden)
+        .background {
+            MaterialView().ignoresSafeArea()
+        }
     }
 }
 
