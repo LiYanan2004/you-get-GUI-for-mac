@@ -51,7 +51,7 @@ struct ContentView: View {
                 }
                 
                 GroupBox {
-                    Toggle("Download Playlist", isOn: $downloadManager.playlist)
+                    Toggle("Download Playlist", isOn: $downloadManager.playlist.animation())
                     if downloadManager.playlist {
                         Toggle("Whole Playlist", isOn: $downloadManager.downloadWholePlaylist.animation())
                         if !downloadManager.downloadWholePlaylist {
@@ -75,7 +75,7 @@ struct ContentView: View {
                 }
                 
                 GroupBox {
-                    Toggle("Using Cookies", isOn: $downloadManager.usingCookies)
+                    Toggle("Using Cookies", isOn: $downloadManager.usingCookies.animation())
                     if downloadManager.usingCookies {
                         LabeledContent("Cookies File (.txt/.sql)") {
                             let location = Binding<URL> {
