@@ -94,6 +94,7 @@ struct ContentView: View {
             .controlSize(.large)
             .prefersDefaultFocus(in: container)
         }
+        .disabledWhenMissingDependency()
         .focusScope(container)
         .onReceive(downloadManager.errorNotification) {
             self.error = $0 as? String
