@@ -35,7 +35,7 @@ struct ContentView: View {
                     } set: {
                         downloadManager.destinationString = $0.path()
                     }
-                    FileLocationButton(location: location)
+                    FileLocationButton(location: location, allowedContentTypes: [.folder])
                         .buttonStyle(.borderless)
                 }
                 
@@ -72,6 +72,23 @@ struct ContentView: View {
                     }
                 } label: {
                     Text("Playlist")
+                }
+                
+                GroupBox {
+                    Toggle("Using Cookies", isOn: $downloadManager.usingCookies)
+                    if downloadManager.usingCookies {
+                        LabeledContent("Cookies File (.txt/.sql)") {
+                            let location = Binding<URL> {
+                                URL(filePath: downloadManager.cookies)
+                            } set: {
+                                downloadManager.cookies = $0.path()
+                            }
+                            FileLocationButton(location: location, allowedContentTypes: [.text, .database])
+                                .buttonStyle(.borderless)
+                        }
+                    }
+                } label: {
+                    Text("Cookies")
                 }
                 
                 GroupBox {

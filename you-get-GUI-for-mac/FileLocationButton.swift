@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct FileLocationButton: View {
     @Binding var location: URL
     @State private var showPannel = false
+    var allowedContentTypes: [UTType]
     
     var body: some View {
         Button {
@@ -22,7 +24,7 @@ struct FileLocationButton: View {
                 Image(systemName: "magnifyingglass")
             }
         }
-        .fileImporter(isPresented: $showPannel, allowedContentTypes: [.folder]) { result in
+        .fileImporter(isPresented: $showPannel, allowedContentTypes: allowedContentTypes) { result in
             switch result {
             case .success(let url):
                 location = url
@@ -35,6 +37,6 @@ struct FileLocationButton: View {
 
 struct FileLocationButton_Previews: PreviewProvider {
     static var previews: some View {
-        FileLocationButton(location: .constant(.downloadsDirectory))
+        FileLocationButton(location: .constant(.downloadsDirectory), allowedContentTypes: [.folder])
     }
 }

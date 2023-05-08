@@ -22,6 +22,8 @@ class DownloadManager: ObservableObject {
     @AppStorage("downloadCaptions") var downloadCaptions = false
     @AppStorage("mergeVideoParts") var mergeVideoParts = true
     @AppStorage("ignoreSSLErrors") var ignoreSSLErrors = false
+    @AppStorage("usingCookies") var usingCookies = false
+    @AppStorage("cookies") var cookies = ""
 
     @Published var showExtractedInfo = false
     @Published var showExtractedJSON = false
@@ -119,15 +121,13 @@ class DownloadManager: ObservableObject {
         command += ignoreSSLErrors ? "-k " : ""
         command += showExtractedInfo ? "-i " : ""
         command += showExtractedJSON ? "--json " : ""
+        command += usingCookies ? "--cookies \(cookies) " : ""
         if playlist {
             command += "-l "
             if !downloadWholePlaylist {
                 command += "\(playlistOption.argument) \(playlistCount) "
             }
         }
-        #warning("This should only be used when testing.")
-        // My cookies file for Bilibili.
-        command += "--cookies ~/Desktop/you-get-GUI-for-mac/cookies.txt "
         command += "-o \(destinationString) "
         command += "\"\(videoURLString)\""
 //        if let cookiesFile = cookiesFile {
