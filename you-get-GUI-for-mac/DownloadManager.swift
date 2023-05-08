@@ -1,5 +1,5 @@
 //
-//  CommandGenerator.swift
+//  DownloadManager.swift
 //  you-get-GUI-for-mac
 //
 //  Created by LiYanan2004 on 2023/5/3.
