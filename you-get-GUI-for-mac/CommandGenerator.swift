@@ -10,7 +10,7 @@ import Combine
 
 class DownloadManager: ObservableObject {
     @Published var videoURLString = "https://www.bilibili.com/video/BV12c411T7CE"
-    @AppStorage("destinationString") var destinationString = "~/Desktop"
+    @AppStorage("destinationString") var destinationString = "~/Downloads"
     @AppStorage("usingM3U8") var usingM3U8 = false
     @AppStorage("playlist") var playlist = true
     @Published var downloadWholePlaylist = true
@@ -108,7 +108,7 @@ class DownloadManager: ObservableObject {
     }
     
     internal func getDownloadCommand() -> String {
-        var command = "~/Downloads/you-get/you-get "
+        var command = "you-get "
 
         command += usingM3U8 ? "-m " : ""
         command += autoRename ? "-a " : ""
