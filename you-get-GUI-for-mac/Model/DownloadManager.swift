@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 class DownloadManager: ObservableObject {
-    @Published var videoURLString = "https://www.bilibili.com/video/BV12c411T7CE"
+    @Published var videoURLString = ""
     @AppStorage("destinationString") var destinationString = "~/Downloads"
     @AppStorage("usingM3U8") var usingM3U8 = false
     @AppStorage("playlist") var playlist = true
