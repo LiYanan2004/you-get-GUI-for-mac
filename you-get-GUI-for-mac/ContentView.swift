@@ -99,7 +99,6 @@ struct ContentView: View {
                     LabeledContent("Show Extracted JSON") {
                         DryRunButton(json: true)
                     }
-                    LabeledContent("You-get Version", value: "0.4.1650")
                 } label: {
                     Text("Debugging Options")
                 }
